@@ -1,7 +1,6 @@
 import sys
 import time
-from heuristicLargestNumberOfVertices import HeuristicLargestNumberOfVertices
-
+from lr import Graph
 
 if len(sys.argv) < 2:
     raise Exception('Please, send at least one parameter')
@@ -9,12 +8,13 @@ if len(sys.argv) < 2:
 for file in sys.argv[1:]:
     print ('Analyzing the graph defined in', file)
     
-    heuristic = HeuristicLargestNumberOfVertices(file)
+    graph = Graph()
+    graph.readInputFile(file)
     initialTime = time.time()
-    chosenVertices, edgesRead = heuristic.run()
+    chosenVertices = graph.getMinimunVertexCover()
     finalTime = time.time()
     chosenVertices.sort()
 
-    print ('Number of vertices:', len(chosenVertices))
+    print('Number of vertices:' , len(chosenVertices))
     print ('Chosen Vertices:', chosenVertices)
     print ('Runtime:', finalTime - initialTime, '\n')
