@@ -15,6 +15,6 @@ for file in sys.argv[1:]:
     finalTime = time.time()
     chosenVertices.sort()
 
-    print ('Number of vertices:', len(chosenVertices))
+    print ('Number of chosen vertices:', len(chosenVertices))
     print ('Chosen Vertices:', chosenVertices)
     print ('Runtime:', finalTime - initialTime, '\n')
